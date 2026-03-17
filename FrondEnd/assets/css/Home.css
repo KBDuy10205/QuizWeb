@@ -1,0 +1,117 @@
+:root {
+    --primary-blue: #2563eb;
+    --dark-blue: #1e40af;
+    --light-bg: #f3f4f6;
+    --white: #ffffff;
+    --text-main: #1f2937;
+    --sidebar-width: 260px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: var(--light-bg);
+    color: var(--text-main);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.menu {
+    flex: 1;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: none;
+    border: none;
+    color: var(--white);
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: var(--dark-blue);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.user-profile img { border-radius: 50%; }
+
+/* Content Styling */
+.content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 28px;
+    color: var(--primary-blue);
+}

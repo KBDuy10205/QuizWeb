@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#e5e5e5;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:90px;
+    height:100vh;
+    background:#2f49b7;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* logo */
+
+.logo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:20px 0;
+}
+
+/* menu */
+
+.menu{
+    list-style:none;
+    width:100%;
+}
+
+.menu li{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    position: relative;
+}
+
+/* active giống hình */
+
+.menu li.active{
+    background:#e5e7eb;
+    color:#2f49b7;
+    border-top-left-radius:40px;
+    border-bottom-left-radius:40px;
+    margin-left:10px;
+}
+
+/* tooltip */
+
+.menu li::after{
+    content:attr(data-title);
+    position:absolute;
+    left:80px;
+    background:#333;
+    color:white;
+    padding:6px 10px;
+    border-radius:6px;
+    font-size:14px;
+    white-space:nowrap;
+    opacity:0;
+    transform:translateX(-10px);
+    transition:0.2s;
+}
+
+/* hover hiện tooltip */
+
+.menu li:hover::after{
+    opacity:1;
+    transform:translateX(0);
+}
+/* MAIN */
+
+.main{
+    flex:1;
+    padding:20px;
+}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    background:#ccc;
+    padding:10px 20px;
+}
+
+.avatar{
+    width:50px;
+    height:50px;
+    background:#20c997;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-right:10px;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+    margin-top:40px;
+    margin-left: 100px;
+    display:flex;
+    gap:40px;
+}
+
+.card{
+    width:200px;
+    height:200px;
+    background:#ccc;
+    text-align:center;
+}
+
+.card-title{
+    background:#20c997;
+    padding:10px;
+}
+
+.card-value{
+    font-size:50px;
+    margin-top:50px;
+}

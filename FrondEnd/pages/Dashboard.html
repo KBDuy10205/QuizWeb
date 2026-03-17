@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/Dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!--Sidebar-->
+        <div class="sidebar">
+
+            <div class="logo">
+                <img src="logo.png" alt="">
+            </div>
+
+            <ul class="menu">
+
+                <li class="active" data-title="Trang chu">🏠</li>
+                <li data-title="Lam bai">📝</li>
+                <li data-title="Cau hoi">❓</li>
+                <li data-title="Ket qua">📊</li>
+                <li data-title="Flashcard">📚</li>
+
+            </ul>
+
+
+        </div>
+
+        <!--Main-->
+        <div class="main">
+            <!--Header-->
+            <div class="header">
+                <div class="user">
+                    <div class="avatar">AVT</div>
+                    <div>
+                        <b>Khương Duy</b>
+                        <p>Học sinh</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--DASHBOARD-->
+            <div class="dashboard">
+
+                <div class="card">
+                    <div class="card-title">Câu hỏi đã làm</div>
+                    <div class="card-value" id="questionDone">0</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Điểm trung bình</div>
+                    <div class="card-value" id="avgScore">0%</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">Flashcard đã học</div>
+                    <div class="card-value" id="flashcard">0</div>
+                </div>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="../assets/js/Dashboard.js"></script>
+</body>
+</html>

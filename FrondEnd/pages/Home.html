@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Trắc Nghiệm Online</title>
+    <link rel="stylesheet" href="../assets/css/Home.css">
+    <link rel="stylesheet" href="../assets/css/CreateExam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>QuizMaster</span>
+        </div>
+        <nav class="menu">
+            <button class="menu-item active" onclick="showSection('home')">
+                <i class="fas fa-home"></i> Trang chủ
+            </button>
+            <button class="menu-item" onclick="showSection('create')">
+                <i class="fas fa-plus-circle"></i> Tạo bài thi
+            </button>
+            <button class="menu-item" onclick="showSection('take-quiz')">
+                <i class="fas fa-pen-fancy"></i> Làm bài tập
+            </button>
+            <button class="menu-item" onclick="showSection('results')">
+                <i class="fas fa-chart-bar"></i> Xem kết quả
+            </button>
+            <button class="menu-item" onclick="showSection('flashcards')">
+                <i class="fas fa-clone"></i> Flashcards
+            </button>
+        </nav>
+        <div class="user-profile">
+            <img src="https://via.placeholder.com/40" alt="Avatar">
+            <span>Người dùng A</span>
+        </div>
+    </aside>
+
+    <main class="content">
+        <header>
+            <h2 id="section-title">Chào mừng trở lại!</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm bộ đề...">
+            </div>
+        </header>
+
+        <section id="main-view">
+            <div class="stats-grid">
+                <div class="stat-card"><h3>12</h3><p>Bài đã làm</p></div>
+                <div class="stat-card"><h3>8.5</h3><p>Điểm trung bình</p></div>
+                <div class="stat-card"><h3>150</h3><p>Từ vựng Flashcard</p></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/js/Home.js"></script>
+    <script src="../assets/js/CreateExam.js"></script>
+    <script src="../assets/js/data.js"></script>
+</body>
+</html>
