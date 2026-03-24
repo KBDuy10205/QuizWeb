@@ -1,0 +1,124 @@
+/* Tinh chỉnh bảng màu và biến số */
+:root {
+    --primary-blue: #2563eb;
+    --dark-blue: #1e40af;
+    --soft-blue: #eff6ff;
+    --success-green: #10b981;
+    --danger-red: #ef4444;
+    --text-main: #1f2937;
+    --text-sub: #6b7280;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 1. Nâng cấp Sidebar */
+.sidebar {
+    background: linear-gradient(180deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+
+.menu-item {
+    border-left: 4px solid transparent;
+    transition: var(--transition);
+}
+
+.menu-item:hover, .menu-item.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-left-color: #fff;
+    padding-left: 20px; /* Hiệu ứng đẩy nhẹ khi chọn */
+}
+
+/* 2. Nâng cấp Bảng (Table) */
+.quiz-table-container {
+    border: 1px solid #e5e7eb;
+    overflow: hidden; /* Để bo góc table */
+}
+
+table th {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    background: #f9fafb;
+}
+
+table tr:last-child td { border-bottom: none; }
+
+/* 3. Nâng cấp Thẻ bài thi (Quiz Cards) */
+.quiz-card-simple {
+    border: 1px solid #e5e7eb;
+    box-shadow: var(--shadow-sm);
+}
+
+.quiz-card-simple:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue);
+}
+
+/* 4. Nâng cấp Giao diện Làm bài (exam.html) */
+.exam-header {
+    border-bottom: 3px solid var(--primary-blue);
+    padding: 20px 30px;
+}
+
+.exam-question-card {
+    border: 1px solid #e5e7eb;
+    transition: var(--transition);
+}
+
+.exam-question-card:hover {
+    border-color: var(--primary-blue);
+}
+
+.option-label {
+    border: 2px solid #f3f4f6;
+    font-weight: 500;
+}
+
+.option-label:hover {
+    background: var(--soft-blue);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* Hiệu ứng khi chọn đáp án */
+.option-label input[type="radio"]:checked + span {
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+/* 5. Nút bấm (Buttons) */
+.btn-primary {
+    background: var(--primary-blue);
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    color: var(--text-main);
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+/* Badge độ khó */
+.badge {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.02em;
+}

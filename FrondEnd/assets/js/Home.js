@@ -14,16 +14,29 @@ function showSection(section) {
     switch(section) {
         case 'home':
             title.innerText = "Chào mừng trở lại!";
-            mainView.innerHTML = `<div class="stat-card"><h3>${quizzes.length}</h3><p>Bài thi hiện có</p></div>`;
+            mainView.innerHTML = `<div class="stat-card">
+                                        <h3>${quizzes.length}</h3>
+                                        <p>Bài thi hiện có</p>
+                                  </div>`;
             break;
         case 'create':
             title.innerText = "Quản lý bài thi";
-            renderQuizList(); // Gọi từ quiz-form.js
+            renderQuizList(); // Gọi từ CreateExam.js
             break;
+
         case 'take-quiz':
-            title.innerText = "Làm bài tập";
-            mainView.innerHTML = "<p>Tính năng đang phát triển...</p>";
+            title.innerText = "Chọn bài thi";
+            renderQuizSelection(); // Gọi hàm từ quiz-engine.js
             break;
-        // ... các case khác
+        
+        case 'results':
+            title.innerText = "Kết quả";
+            renderResults(); //Gọi hàm từ Result.js
+            break;
+        
+        case 'flashcards':
+            title.innerText = "Ghi nhớ với Flashcards";
+            renderFlashcardUI();
+            break;
     }
 }

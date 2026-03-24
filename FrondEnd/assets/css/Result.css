@@ -1,0 +1,39 @@
+/* style.css */
+.result-item-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.result-item-card:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+}
+
+.res-info { flex: 1; }
+.res-date { font-size: 11px; color: var(--text-sub); }
+.res-title { margin: 5px 0; color: var(--primary-blue); font-size: 18px; }
+.res-player { font-size: 13px; color: #4b5563; }
+
+.res-score-box {
+    text-align: center;
+    padding: 0 30px;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+}
+
+.res-percent { font-size: 24px; font-weight: 800; }
+.res-percent.pass { color: var(--success-green); }
+.res-percent.fail { color: var(--danger-red); }
+.res-detail { font-size: 12px; color: var(--text-sub); }
+
+.res-action .btn-primary {
+    padding: 8px 15px;
+    font-size: 14px;
+}

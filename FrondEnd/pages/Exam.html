@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đang làm bài thi</title>
+    <link rel="stylesheet" href="../assets/css/Exam.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="display: block; background: #f3f4f6;"> <div class="exam-layout" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+        <header class="exam-header">
+            <div id="exam-title" style="font-weight: bold; font-size: 20px;">Tên bài thi</div>
+            <div class="exam-timer"><i class="fas fa-clock"></i> <span id="time-left">00:00</span></div>
+        </header>
+
+        <!--Thông tin người thi-->
+        <div class="player-bar" style="margin-bottom: 20px; color: #666;">
+            Thí sinh: <strong id="display-player-name">---</strong>
+        </div>
+
+        <!--Nội dung bài thi-->
+        <div id="questions-container"></div>
+
+        <!--Nộp bài-->
+        <div class="exam-footer" style="text-align: center; padding: 40px;">
+            <button class="btn-primary" style="padding: 15px 40px;" onclick="submitExam()">NỘP BÀI THI</button>
+        </div>
+    </div>
+
+    <script src="../assets/js/Exam-logic.js"></script>
+</body>
+</html>
