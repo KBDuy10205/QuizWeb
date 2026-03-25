@@ -39,3 +39,14 @@ function renderFlashcardUI() {
         </div>
     `;
 }
+
+function startFlashcardSession(setId) {
+    const set = flashcardSets.find(s => s.id === setId);
+    if (!set) return alert("Lỗi dữ liệu!");
+
+    // Lưu bộ thẻ được chọn vào localStorage
+    localStorage.setItem('currentFlashcardSet', JSON.stringify(set));
+
+    // Chuyển sang trang ôn tập riêng
+    window.location.href = 'Flashcard-Study.html';
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ôn tập Flashcards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/Flashcard-Study.css"> </head>
+<body style="background: #f3f4f6;">
+    <div class="study-wrapper">
+        <div class="study-header">
+            <button onclick="window.location.href='Home.html'" class="btn-secondary">
+                <i class="fas fa-times"></i> Thoát
+            </button>
+            <h2 id="study-set-title">Đang tải...</h2>
+            <div id="progress-text">0/0</div>
+        </div>
+
+        <div class="progress-bar-container">
+            <div id="study-progress" class="progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <div class="flashcard-container">
+            <div class="flip-card" id="main-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="side-label">MẶT TRƯỚC</div>
+                        <h1 id="card-term">...</h1>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="side-label">MẶT SAU</div>
+                        <h1 id="card-definition">...</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="study-controls">
+            <button onclick="prevCard()" class="btn-nav" id="btn-prev"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="nextCard()" class="btn-nav" id="btn-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <p style="text-align:center; color:#6b7280; margin-top:15px;">Mẹo: Click vào thẻ để lật mặt sau</p>
+    </div>
+
+    <script src="../assets/js/Flashcard-Study.js"></script>
+</body>
+</html>

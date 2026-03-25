@@ -1,25 +1,59 @@
-/* Hiệu ứng lật thẻ 3D */
-.flip-card {
-    background-color: transparent;
-    width: 100%;
-    height: 300px;
-    perspective: 1000px;
-    cursor: pointer;
-    margin-top: 20px;
+.study-wrapper { 
+    max-width: 600px; 
+    margin: 50px auto; 
+    padding: 20px; 
 }
 
+.study-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+/* Thanh tiến trình */
+.progress-bar-container { 
+    background: #e5e7eb; 
+    height: 8px; 
+    border-radius: 4px; 
+    margin-bottom: 30px; 
+}
+
+.progress-fill { 
+    background: #2563eb; 
+    height: 100%; 
+    border-radius: 4px; 
+    transition: 0.3s; }
+
+/* Container thẻ 3D */
+/* Container giữ không gian 3D */
+.flashcard-container { 
+    perspective: 1000px; 
+    height: 350px; 
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Khung lật thẻ */
+.flip-card {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Lớp "Bản lề" - Đây là lớp sẽ xoay */
 .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: var(--shadow-md);
-    border-radius: 20px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d; /* Giữ môi trường 3D cho các con */
 }
 
-.flipped .flip-card-inner {
+/* Khi lật thẻ: Xoay lớp INNER, không xoay lớp CARD ngoài cùng */
+.flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
 
@@ -27,24 +61,74 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Giấu mặt sau khi bị xoay đi */
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
-    padding: 20px;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+/* Mặt trước mặc định là 0 độ */
 .flip-card-front {
-    background-color: #fff;
-    color: var(--primary-blue);
-    border: 2px solid var(--primary-blue);
+    background: white;
+    color: #1e293b;
+    border: 2px solid #e2e8f0;
+    z-index: 2;
 }
 
+/* Mặt sau PHẢI được lật sẵn 180 độ ngay từ đầu */
+/* Nhờ đó khi cả khối inner xoay 180, nó sẽ trở về 0 (đọc được bình thường) */
 .flip-card-back {
-    background-color: var(--primary-blue);
+    background: #2563eb;
     color: white;
     transform: rotateY(180deg);
 }
+
+.side-label { 
+    font-size: 10px; 
+    letter-spacing: 2px;
+    color: #94a3b8;
+    margin-bottom: 20px; 
+    position: absolute; 
+    top: 20px; 
+}
+
+.flip-card-back .side-label { 
+    color: #bfdbfe; 
+}
+
+/* Nút điều hướng */
+.study-controls { 
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 30px; 
+}
+
+.btn-nav { 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    border: none; 
+    background: white; 
+    font-size: 20px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    transition: 0.2s; 
+}
+
+.btn-nav:hover:not(:disabled) {
+    background: #2563eb; 
+    color: white; 
+    transform: scale(1.1); 
+}
+
+.btn-nav:disabled { 
+    opacity: 0.3; 
+    cursor: not-allowed; 
+}
+
