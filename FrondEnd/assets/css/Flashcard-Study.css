@@ -132,3 +132,44 @@
     cursor: not-allowed; 
 }
 
+.feedback-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-rate {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.2s;
+    min-width: 90px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.btn-rate i { font-size: 20px; }
+
+/* Màu sắc từng loại nút */
+.btn-rate.easy { color: #16a34a; }
+.btn-rate.easy:hover { background: #dcfce7; }
+
+.btn-rate.medium { color: #ca8a04; }
+.btn-rate.medium:hover { background: #fef9c3; }
+
+.btn-rate.hard { color: #dc2626; }
+.btn-rate.hard:hover { background: #fee2e2; }
+
+/* Hiệu ứng viền cho thẻ khi được đánh giá */
+.flip-card-inner {
+    border: 3px solid transparent;
+    transition: border-color 0.3s;
+}

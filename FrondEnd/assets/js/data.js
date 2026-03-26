@@ -1,6 +1,7 @@
 // Bổ sung thêm mảng questions vào mỗi quiz
 let quizzes = [
     { 
+        totalQuestions: 2,
         id: 1, 
         title: "Toán học giải tích", 
         duration: 1, // Để 1 phút để test timer cho nhanh
@@ -20,6 +21,8 @@ let quizzes = [
         ],
         createdAt: "2024-05-10"
     }
+
+    
 ];
 
 let flashcardSets = [

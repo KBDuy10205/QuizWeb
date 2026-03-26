@@ -41,6 +41,18 @@
         <p style="text-align:center; color:#6b7280; margin-top:15px;">Mẹo: Click vào thẻ để lật mặt sau</p>
     </div>
 
+    <div class="feedback-controls">
+        <button onclick="rateCard('easy')" class="btn-rate easy" title="Đã thuộc">
+            <i class="fas fa-check-circle"></i> <span>Đã thuộc</span>
+        </button>
+        
+        <button onclick="rateCard('medium')" class="btn-rate medium" title="Tạm nhớ">
+            <i class="fas fa-hourglass-half"></i> <span>Tạm nhớ</span>
+
+        <button onclick="rateCard('hard')" class="btn-rate hard" title="Quên">
+            <i class="fas fa-times-circle"></i> <span>Quên</span>
+        </button>
+    </div>
     <script src="../assets/js/Flashcard-Study.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@ let timer;
 window.onload = () => {
     if (!quizData) {
         alert("Không tìm thấy dữ bộ đề!");
-        window.location.href = 'index.html';
+        window.location.href = 'Home.html';
         return;
     }
 
@@ -84,7 +84,7 @@ function submitExam() {
     history.unshift(newRecord); // Đưa kết quả mới nhất lên đầu
     localStorage.setItem('quizHistory', JSON.stringify(history));
     
-    // Hiển thị kết quả (Bạn có thể làm một trang result.html riêng hoặc hiện tại chỗ)
+    // Hiển thị kết quả 
 
     document.body.innerHTML = `
         <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f3f4f6;">

@@ -52,3 +52,47 @@ function prevCard() {
         renderCard();
     }
 }
+
+// Thêm hàm đánh giá mức độ
+function rateCard(level) {
+    const card = currentSet.cards[currentIndex];
+    
+    // Lưu mức độ vào đối tượng card (để có thể thống kê sau này)
+    card.level = level; 
+
+    // Hiệu ứng màu sắc tạm thời để người dùng biết đã chọn
+    const cardElement = document.querySelector('.flip-card-inner');
+    if (level === 'easy') cardElement.style.borderColor = '#16a34a';
+    if (level === 'medium') cardElement.style.borderColor = '#ca8a04';
+    if (level === 'hard') cardElement.style.borderColor = '#dc2626';
+
+    // Đợi 300ms rồi tự động chuyển sang thẻ tiếp theo
+    setTimeout(() => {
+        cardElement.style.borderColor = ''; // Reset màu
+        nextCard();
+    }, 300);
+}
+
+// Cập nhật hàm nextCard để báo cáo kết quả khi hết bộ thẻ
+function nextCard() {
+    if (currentIndex < currentSet.cards.length - 1) {
+        currentIndex++;
+        renderCard();
+    } else {
+        showStudySummary();
+    }
+}
+
+function showStudySummary() {
+    const easyCount = currentSet.cards.filter(c => c.level === 'easy').length;
+    const midCount = currentSet.cards.filter(c => c.level === 'medium').length;
+    const hardCount = currentSet.cards.filter(c => c.level === 'hard').length;
+
+    alert(`Chúc mừng! Bạn đã hoàn thành bộ thẻ.
+    --------------------------
+    ✅ Đã thuộc: ${easyCount}
+    ⚠️ Tạm nhớ: ${midCount}
+    ❌ Quên: ${hardCount}`);
+    
+    window.location.href = 'Home.html';
+}
