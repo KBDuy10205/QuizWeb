@@ -1,0 +1,299 @@
+### Test API Đăng ký
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "nguyenvana",
+    "password": "123",
+    "fullName": "Nguyễn Văn A",
+    "email": "vana@gmail.com",
+    "phone": "0912345678"
+}
+
+###
+
+### Test API Đăng nhập
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "nguyenvana",
+    "password": "123"
+}
+
+### Test API Flashcard
+### 1. API: Tạo một bộ thẻ mới
+POST http://localhost:8080/api/flashcards/set
+Content-Type: application/json
+
+{
+    "setName": "Từ vựng tiếng Anh Giao tiếp",
+    "description": "Các mẫu câu thông dụng ",
+    "createdBy": {
+        "accountId": 1
+    },
+    "createdAt": "2024-06-01T10:00:00"
+}
+
+
+### 2. API: Thêm danh sách thẻ vào bộ (Giả sử setId = 2)
+POST http://localhost:8080/api/flashcards/2/add-flashcards
+Content-Type: application/json
+
+[
+    {
+        "frontText": "How are you?",
+        "backText": "Bạn khỏe không?"
+    },
+    {
+        "frontText": "Nice to meet you",
+        "backText": "Rất vui được gặp bạn"
+    },
+    {
+        "frontText": "Long time no see",
+        "backText": "Lâu rồi không gặp"
+    }
+]
+
+### 3. API: Lấy toàn bộ thẻ của bộ thẻ ID = 2
+GET http://localhost:8080/api/flashcards/set/2
+Accept: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Test API Exam
+### Gửi yêu cầu tạo bài thi mới (bao gồm câu hỏi và đáp án)
+POST http://localhost:8080/api/exams/create
+Content-Type: application/json
+
+{
+  "examName": "Kiểm tra Lập trình Java Spring Boot",
+  "timeLimit": 60,
+  "createdBy": {
+    "accountId": 1
+  },
+  "questions": [
+    {
+      "content": "Spring Boot dùng annotation nào để đánh dấu lớp Controller?",
+      "level": "Easy",
+      "answers": [
+        {
+          "content": "@RestController",
+          "isCorrect": true
+        },
+        {
+          "content": "@Service",
+          "isCorrect": false
+        },
+        {
+          "content": "@Repository",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "content": "Tính chất nào không thuộc lập trình hướng đối tượng (OOP)?",
+      "level": "Medium",
+      "answers": [
+        {
+          "content": "Tính đóng gói",
+          "isCorrect": false
+        },
+        {
+          "content": "Tính đa hình",
+          "isCorrect": false
+        },
+        {
+          "content": "Tính bất biến (Immutability)",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}
+
+### API: Cập nhật thông tin đề thi (ví dụ: đổi tên đề thi, thời gian làm bài)
+PUT http://localhost:8080/api/exams/1
+Content-Type: application/json
+
+{
+  "examName": "Kiểm tra Lập trình Java Spring Boot - Cập nhật",
+  "timeLimit": 10,
+  "createdBy": {
+    "accountId": 1
+  },
+  "questions": [
+    {
+      "content": "Spring Boot dùng annotation nào để đánh dấu lớp Controller?",
+      "level": "Easy",
+      "answers": [
+        {
+          "content": "@RestController",
+          "isCorrect": true
+        },
+        {
+          "content": "@Service",
+          "isCorrect": false
+        },
+        {
+          "content": "@Repository",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "content": "Tính chất nào không thuộc lập trình hướng đối tượng (OOP)?",
+      "level": "Medium",
+      "answers": [
+        {
+          "content": "Tính đóng gói",
+          "isCorrect": false
+        },
+        {
+          "content": "Tính đa hình",
+          "isCorrect": false
+        },
+        {
+          "content": "Tính bất biến (Immutability)",
+          "isCorrect": true
+        }
+      ]
+    }
+  ]
+}
+
+### API: Lấy tất cả đề thi
+GET http://localhost:8080/api/exams
+Accept: application/json 
+
+### API: Lấy đề thi theo ID
+GET http://localhost:8080/api/exams/1
+Accept: application/json
+
+### API: Xóa đề thi theo ID
+DELETE http://localhost:8080/api/exams/1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Test API Result
+### API: Lưu kết quả làm bài thi
+### Gửi cả các đáp án đã chọn của thí sinh (nếu có) để tính điểm chính xác
+POST http://localhost:8080/api/results/save
+Content-Type: application/json
+
+{
+  "exam": {
+    "examId": 2
+  },
+  "account": {
+    "accountId": 1
+  },
+  "score": 5.0,
+  "startTime": "2024-06-01T10:00:00",
+  "endTime": "2024-06-01T10:45:00",
+  "resultDetails": [
+        {
+        "question": {"questionId": 5},
+        "answer": {"answerId": 14}
+        },
+
+        {
+        "question": {"questionId": 6},
+        "answer": {"answerId": 18}
+        }
+    ]
+}
+
+### API: Lấy kết quả thi của một thí sinh theo Result ID
+GET http://localhost:8080/api/results/7
+Accept: application/json
+
+### API: Lấy tất cả kết quả thi của một thí sinh theo Account ID
+GET http://localhost:8080/api/results/get/1
+Accept: application/json
+
+### API: Xóa kết quả làm bài thi của học sinh theo ResultId
+DELETE http://localhost:8080/api/results/delete/7
+
